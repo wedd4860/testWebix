@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+	<script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>  
+</head>
+<body>
+	<div id="layout_div" style="width:700px;margin:0 auto"></div>
+
+	<script type="text/javascript" charset="utf-8">
+webix.ui({
+	container:"layout_div",
+	id:"layout",
+	width:700,
+	height:700,
+	rows:[
+		{template:"row 1_1",height:30},
+		{template:"row 1_2",minHeight:30},
+		{view:"resizer"},
+		{template:"row 2_1",minHeight:30},
+		{view:"resizer"},
+		{cols:[
+			{template:"column 1",id:"a1",width:150,minWidth:50,maxWidth:250},
+			{view:"resizer"},
+			{template:"column 3"},
+			{template:"column 2"}
+		]}
+	]
+})
+	</script>
+</body>
+</html>

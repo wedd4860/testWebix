@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+	<script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>  
+</head>
+<body>
+	<div id="layout_div" style="width:700px;margin:0 auto"></div>
+
+	<script type="text/javascript" charset="utf-8">
+webix.ready(function(){
+	webix.ui({
+		container:'layout_div',
+		width:700,
+		rows:[
+			{
+				view:'toolbar',
+				elements:[
+					{view:'button',value:'add',width:100,click:add_row},
+					{view:'button',value:'del',width:100,click:del_row},
+					{view:'button',value:'update',width:100,click:update_row},
+					{view:'button',value:'clear',width:100,click:function(){$$('myform').clear()}},
+				]
+			},//row
+			{
+				cols:[
+					{
+						view:'form',
+						id:'myform',
+						elements:[
+							{view:'text',placeholder:'제목',name:'title'},
+							{view:'text',placeholder:'년도',name:"year"},
+							{view:'text',placeholder:'부가',name:"temp"},
+						]
+					},
+					{
+						view:'list',
+						id:'mylist',
+						select:true,
+						template:'#title#,#year# - #temp#',
+						heighr:400,
+						data:[
+							{ id:1, title:"The Shawshank Redemption", year:1994, temp:'temp11'},
+							{ id:2, title:"The Godfather", year:1972, temp:'temp22'},
+							{ id:3, title:"The Godfather: Part II", year:1974, temp:'temp33'},
+							{ id:4, title:"The Good, the Bad and the Ugly", year:1966, temp:'temp44'},
+							{ id:5, title:"My Fair Lady", year:1964, temp:'temp55'},
+							{ id:6, title:"12 Angry Men", year:1957, temp:'temp66'}
+						]
+					}
+				]//cols
+			}
+		]
+	})
+})
+
+function add_row () {
+	$$('mylist').add({
+		title:$$('myform').getValues().title,
+		year:$$('myform').getValues().year,
+		temp:$$('myform').getValues().temp,
+	})
+}
+function del_row () {
+	var idx=$$('mylist').getSelectedId();
+	$$('mylist').remove(idx);
+}
+
+function update_row () {
+	var idx=$$('mylist').getSelectedId();
+	if(idx==false){
+		return false;
+	}
+
+	var form_title=$$('myform').getValues().title;
+	var form_year=$$('myform').getValues().year;
+	var form_temp=$$('myform').getValues().temp;
+
+	var form_item=$$('mylist').getItem(idx);
+	form_item.title=form_title;
+	form_item.year=form_year;
+	form_item.temp=form_temp;
+	$$('mylist').updateItem(idx,form_item);
+}
+	</script>
+</body>
+</html>

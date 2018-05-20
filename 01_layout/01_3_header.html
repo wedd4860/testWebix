@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+	<script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>  
+</head>
+<body>
+	<div id="layout_div" style="width:700px;margin:0 auto"></div>
+
+	<script type="text/javascript" charset="utf-8">
+webix.ui({
+	container:"layout_div",
+	multi:true,
+	view:"accordion",
+	width:700,
+	height:600,
+	cols:[
+		{header:"col 1",body:"content 1",width:150},
+		{body:"content 2"},
+		{header:"col 3",body:"content 3<br>collapsed",width:150,collapsed:false},
+		{body:"content 4"},
+		{header:"col 5",body:"content 5",width:150}
+	]
+}).show()
+	</script>
+</body>
+</html>

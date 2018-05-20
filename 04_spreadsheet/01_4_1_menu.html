@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta  name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no">
+	<link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="common/spreadsheet.css">
+
+	<script src="common/webix.js" type="text/javascript"></script>
+	<script src="common/spreadsheet.js" type="text/javascript"></script>
+
+	<script src="common/data.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+
+<script type="text/javascript" charset="utf-8">
+webix.ready(function(){
+	webix.ui({
+		view:'spreadsheet',
+		id:'ssheat',
+		data:base_data,
+		menu:true,
+		toolbar:'full'
+	});//webix.ui
+});//webix.ready()
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+	<script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>  
+</head>
+<body>
+	<div id="layout_div" style="width:700px;margin:0 auto"></div>
+
+	<script type="text/javascript" charset="utf-8">
+webix.ui({
+	container:'layout_div',
+	width:700,
+	height:700,
+	rows:[
+		{template:"타이틀 1"},
+		{cols:[
+			{template:"타이틀 2_1"},
+			{template:"타이틀 2_2"},
+		]}
+	]
+}).show()
+	</script>
+</body>
+</html>
